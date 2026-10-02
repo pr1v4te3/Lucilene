@@ -170,17 +170,17 @@ section{position:relative;scroll-margin-top:84px}
 .hero .lead{margin-top:20px;font-size:clamp(1.05rem,2.4vw,1.2rem);color:var(--muted);max-width:560px}
 
 /* Visual do hero: foto real */
-.hv{position:relative;max-width:430px;width:100%;margin-inline:auto;padding:6px 22px 58px 0}
+.hv{position:relative;max-width:400px;width:100%;margin-inline:auto;padding:6px 22px 58px 0}
 .hv::before{content:"";position:absolute;inset:30px 0 50px 36px;border-radius:999px 999px 30px 30px;background:linear-gradient(160deg,var(--rose),var(--brand-100));transform:rotate(3.5deg)}
 .hv::after{content:"";position:absolute;left:-14px;top:17%;width:34px;height:34px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1l2.6 7.4L22 11l-7.4 2.6L12 21l-2.6-7.4L2 11l7.4-2.6z' fill='%23C9A24B'/%3E%3C/svg%3E") center/contain no-repeat}
-.hero-photo{position:relative;margin:0;aspect-ratio:4/5;border-radius:999px 999px 30px 30px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;background:var(--brand-100)}
+.hero-photo{position:relative;margin:0;aspect-ratio:4/5;border-radius:999px 999px 30px 30px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;background:var(--brand-100);outline:1.5px solid rgba(201,162,75,.75);outline-offset:9px}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
-.hsum{position:absolute;left:14px;right:36px;bottom:4px;display:grid;grid-template-columns:repeat(3,1fr);background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid #fff;border-radius:20px;box-shadow:0 22px 44px -22px rgba(110,44,74,.55),0 0 0 1px var(--line);padding:12px 4px;list-style:none;margin:0;align-items:start}
-.hsum li{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:0 6px;font-size:.78rem;font-weight:600;line-height:1.25;color:var(--brand-800)}
-.hsum li+li{border-left:1px solid var(--line)}
-.hsum .ci{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--brand-100),var(--rose));color:var(--brand);display:grid;place-items:center}
-.hsum .ci .ico{width:17px;height:17px}
-@media(max-width:420px){.hsum{left:10px;right:30px}.hsum li{font-size:.72rem;padding:0 2px}.hsum .ci{width:30px;height:30px}.hv::after{left:-6px}}
+.fchip{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;border-radius:99px;padding:7px 18px 7px 7px;font-size:.92rem;font-weight:600;color:var(--brand-800);box-shadow:0 16px 34px -16px rgba(110,44,74,.6),0 0 0 1px var(--line);line-height:1.2;white-space:nowrap}
+.fchip .ci{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--brand-100),var(--rose));color:var(--brand);display:grid;place-items:center;flex:none}
+.fchip .ci .ico{width:17px;height:17px}
+.fchip.c1{left:-14px;bottom:92px}
+.fchip.c2{right:-4px;bottom:34px}
+@media(max-width:420px){.fchip{font-size:.8rem;padding:6px 13px 6px 6px;gap:8px}.fchip .ci{width:28px;height:28px}.fchip .ci .ico{width:15px;height:15px}.fchip.c1{left:-8px;bottom:84px}.fchip.c2{right:0;bottom:30px}.hv::after{left:-6px}}
 .who{display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:99px;padding:7px 20px 7px 8px}
 .who b{display:block;font-size:.92rem;color:var(--brand-800);line-height:1.2}
 .who small{display:block;font-size:.76rem;color:var(--muted);line-height:1.25}
@@ -496,11 +496,8 @@ footer .ph{background:#FFF1B8;color:#5B4300}
 
     <div class="hv reveal" style="--d:.2s">
       <figure class="hero-photo"><img src="foto-lucilene.jpg" width="800" height="1000" fetchpriority="high" alt="Lucilene Amorim, enfermeira, sentada e sorrindo com a mão apoiada no queixo"></figure>
-      <ul class="hsum" aria-label="Resumo do atendimento">
-        <li><span class="ci"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></span>Atendimento em casa</li>
-        <li><span class="ci"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></span>Bebês e crianças</li>
-        <li><span class="ci"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>Conversa antes</li>
-      </ul>
+      <div class="fchip c1"><span class="ci"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></span>Atendimento em casa</div>
+      <div class="fchip c2"><span class="ci"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></span>Bebês e crianças</div>
     </div>
   </div>
 </section>

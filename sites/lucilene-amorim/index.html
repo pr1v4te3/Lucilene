@@ -1,5 +1,10 @@
 <!doctype html>
 <html lang="pt-BR">
+<!--
+  PENDÊNCIAS: procure por "PREENCHER" neste arquivo. Cada marcador amarelo visível na página
+  some quando você trocar o texto. Número do WhatsApp: veja CONFIG no fim do arquivo.
+  Foto: substitua foto-lucilene.jpg (mesma pasta) por uma foto original em alta resolução, proporção 4:5.
+-->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +19,7 @@
 <meta property="og:title" content="Lucilene Amorim | Laserterapia pediátrica em casa">
 <meta property="og:description" content="Laserterapia pediátrica domiciliar, com explicação clara e cuidado. Converse pelo WhatsApp e peça um horário.">
 <!-- [PREENCHER: og:url com o endereço final da página] -->
-<!-- [PREENCHER: og:image com uma foto da Lucilene (1200x630) -->
+<!-- [PREENCHER: og:image com o endereço completo da foto depois de publicar, ex.: https://seudominio.com/foto-lucilene.jpg] -->
 <meta name="twitter:card" content="summary">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238B3A5E'/%3E%3Cpath d='M23 14v32h19' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='44' cy='20' r='4' fill='%23F7C9D8'/%3E%3C/svg%3E">
@@ -82,7 +87,7 @@ p{margin:0}
 @media(min-width:700px){.wrap{padding-inline:28px}}
 section{position:relative;scroll-margin-top:84px}
 .sec{padding:76px 0}
-@media(max-width:700px){.sec{padding:56px 0}}
+@media(max-width:700px){.sec{padding:48px 0}.sec-head{margin-bottom:26px}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--brand);background:var(--brand-100);padding:7px 14px;border-radius:99px}
 .sec-head{max-width:720px;margin-bottom:38px}
 .sec-head h2{font-size:clamp(1.9rem,4.4vw,2.9rem);margin-top:14px}
@@ -110,8 +115,10 @@ section{position:relative;scroll-margin-top:84px}
 .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:99px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:var(--font-text);transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s;overflow:hidden;text-align:center;line-height:1.2}
 .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-700));color:#fff;box-shadow:0 14px 30px -14px rgba(110,44,74,.8)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(110,44,74,.9)}
-.btn-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);animation:shine 4.2s ease-in-out infinite}
-@keyframes shine{0%,55%{left:-60%}100%{left:130%}}
+.btn-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);pointer-events:none}
+.btn-primary:hover::after{animation:shine 1s ease-out 1}
+.hero .btn-primary::after{animation:shine 6.5s ease-in-out 2s infinite}
+@keyframes shine{0%,70%{left:-60%}100%{left:130%}}
 .btn-ghost{background:rgba(255,255,255,.7);color:var(--brand-700);border-color:var(--brand-100);backdrop-filter:blur(6px)}
 .btn-ghost:hover{border-color:var(--brand);transform:translateY(-2px)}
 .btn-light{background:#fff;color:var(--brand-700)}
@@ -148,12 +155,10 @@ section{position:relative;scroll-margin-top:84px}
 /* HERO */
 .hero{padding:118px 0 56px;overflow:hidden}
 .aurora{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;opacity:.7;will-change:transform}
-.aurora i:nth-child(1){width:520px;height:520px;right:-120px;top:-60px;background:radial-gradient(circle,rgba(247,201,216,.95),transparent 68%);animation:drift1 16s ease-in-out infinite alternate}
-.aurora i:nth-child(2){width:460px;height:460px;left:-160px;top:180px;background:radial-gradient(circle,rgba(201,162,75,.30),transparent 68%);animation:drift2 19s ease-in-out infinite alternate}
-.aurora i:nth-child(3){width:420px;height:420px;right:18%;bottom:-140px;background:radial-gradient(circle,rgba(139,58,94,.22),transparent 68%);animation:drift1 22s ease-in-out infinite alternate-reverse}
-@keyframes drift1{to{transform:translate(-50px,40px) scale(1.12)}}
-@keyframes drift2{to{transform:translate(60px,-30px) scale(1.08)}}
+.aurora i{position:absolute;border-radius:50%;opacity:.7}
+.aurora i:nth-child(1){width:520px;height:520px;right:-120px;top:-60px;background:radial-gradient(circle,rgba(247,201,216,.95),transparent 68%)}
+.aurora i:nth-child(2){width:460px;height:460px;left:-160px;top:180px;background:radial-gradient(circle,rgba(201,162,75,.30),transparent 68%)}
+.aurora i:nth-child(3){width:420px;height:420px;right:18%;bottom:-140px;background:radial-gradient(circle,rgba(139,58,94,.22),transparent 68%)}
 .hero-grid{display:grid;gap:44px;align-items:center}
 @media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:54px}.hero{padding-top:132px}}
 .hero h1{font-size:clamp(2.2rem,6.4vw,4.1rem);margin-top:18px;letter-spacing:-.02em}
@@ -165,78 +170,57 @@ section{position:relative;scroll-margin-top:84px}
 .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:99px;padding:9px 15px;font-size:.88rem;font-weight:500;color:var(--brand-700)}
 .badge .ico{width:18px;height:18px;color:var(--brand)}
 
-/* Visual do hero */
-.hv{position:relative;perspective:1100px;max-width:520px;width:100%;margin-inline:auto;padding:46px 0 78px}
-.hv-card{position:relative;background:rgba(255,255,255,.86);border:1px solid #fff;border-radius:26px;box-shadow:var(--shadow),0 0 0 1px var(--line);overflow:hidden;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;will-change:transform}
-.win-bar{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--brand-50);font-size:.78rem;color:var(--muted)}
-.win-bar i{width:11px;height:11px;border-radius:50%;background:var(--rose)}
-.win-bar i:nth-child(2){background:#F2DDA3}.win-bar i:nth-child(3){background:#CFE5D8}
-.win-bar span{margin-left:8px}
-.scene{padding:14px 14px 0}
-.scene svg{width:100%;height:auto;border-radius:16px}
-.mini{list-style:none;margin:0;padding:14px 20px 20px;display:grid;gap:11px}
-.mini li{display:flex;align-items:center;gap:12px;font-size:.95rem;font-weight:500}
-.mini .dot{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--brand-100);color:var(--brand);flex:none}
-.mini .dot .ico{width:15px;height:15px;stroke-width:3}
-.mini .bar{flex:1;height:8px;border-radius:99px;background:var(--brand-100);overflow:hidden;margin-left:4px}
-.mini .bar b{display:block;height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--gold));transform-origin:0 50%;animation:fill 5s ease-in-out infinite}
-@keyframes fill{0%{transform:scaleX(.05)}70%,100%{transform:scaleX(1)}}
-.live{width:26px;height:26px;border-radius:50%;background:var(--brand);display:grid;place-items:center;flex:none}
-.live::after{content:"";width:9px;height:9px;border-radius:50%;background:#fff;animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.6);opacity:.5}}
-.ripple{transform-box:fill-box;transform-origin:center;animation:ripple 3s ease-out infinite;opacity:0}
-.ripple.r2{animation-delay:1s}.ripple.r3{animation-delay:2s}
+/* Visual do hero: foto real */
+.hv{position:relative;max-width:430px;width:100%;margin-inline:auto;padding:6px 20px 30px 0}
+.hv::before{content:"";position:absolute;inset:30px 0 0 34px;border-radius:999px 999px 30px 30px;background:linear-gradient(160deg,var(--rose),var(--brand-100));transform:rotate(3.5deg)}
+.hero-photo{position:relative;margin:0;aspect-ratio:4/5;border-radius:999px 999px 30px 30px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;background:var(--brand-100)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.fchip{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-size:.84rem;font-weight:600;color:var(--brand-700);box-shadow:0 14px 30px -16px rgba(110,44,74,.55);line-height:1.25}
+.fchip .ico{width:18px;height:18px;color:var(--brand)}
+.fchip.c1{left:-10px;bottom:62px}
+.fchip.c2{right:-2px;top:34%}
+@media(max-width:420px){.fchip{font-size:.78rem;padding:8px 11px}.fchip.c1{left:-6px}}
+.who{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:99px;padding:6px 18px 6px 6px}
+.who b{display:block;font-size:.92rem;color:var(--brand-800);line-height:1.2}
+.who small{display:block;font-size:.76rem;color:var(--muted);line-height:1.25}
+.avatar{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:var(--brand-100);border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.avatar img{width:100%;height:100%;object-fit:cover;transform:scale(1.9);transform-origin:50% 36%}
+.ripple{transform-box:fill-box;transform-origin:center;animation:ripple 3.2s ease-out infinite;opacity:0}
+.ripple.r2{animation-delay:1.1s}
 @keyframes ripple{0%{transform:scale(.4);opacity:.8}100%{transform:scale(1.7);opacity:0}}
-.glow{transform-box:fill-box;transform-origin:center;animation:glowp 1.8s ease-in-out infinite}
-@keyframes glowp{50%{transform:scale(1.5);opacity:.5}}
-.twinkle{transform-box:fill-box;transform-origin:center;animation:twinkle 2.6s ease-in-out infinite}
-.twinkle.t2{animation-delay:.9s}.twinkle.t3{animation-delay:1.7s}
+.glow{transform-box:fill-box;transform-origin:center;animation:glowp 2s ease-in-out infinite}
+@keyframes glowp{50%{transform:scale(1.4);opacity:.55}}
+.twinkle{transform-box:fill-box;transform-origin:center}
+.card:hover .twinkle{animation:twinkle 2.6s ease-in-out infinite}
+.card:hover .twinkle.t2{animation-delay:.9s}
 @keyframes twinkle{50%{transform:scale(.4) rotate(40deg);opacity:.3}}
-.fchip{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 15px;font-size:.84rem;font-weight:600;color:var(--brand-700);box-shadow:0 14px 30px -16px rgba(110,44,74,.55);animation:float 6s ease-in-out infinite;white-space:nowrap}
-.fchip .ico{width:17px;height:17px;color:var(--brand)}
-.fchip.c1{left:14px;top:2px}
-.fchip.c2{right:-4px;top:38%;animation-delay:-2s}
-.fchip.c3{left:14px;bottom:34px;animation-delay:-4s}
-@keyframes float{50%{transform:translateY(-10px)}}
-@media(max-width:420px){.fchip{font-size:.78rem;padding:8px 12px}.fchip.c1{left:0}.fchip.c2{right:0}.fchip.c3{left:6px}}
-.hv-note{position:absolute;left:0;right:0;bottom:2px;text-align:center;font-size:.76rem;color:var(--muted)}
 
 /* Faixa de confiança */
 .trust{padding:8px 0 28px}
-.facts{display:grid;gap:14px;grid-template-columns:1fr}
-@media(min-width:560px){.facts{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.facts{grid-template-columns:repeat(5,1fr)}.fact{flex-direction:column;gap:12px}}
-.fact{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;gap:14px;align-items:flex-start}
-.fact .ib{width:44px;height:44px;border-radius:14px;background:var(--brand-100);color:var(--brand);display:grid;place-items:center;flex:none}
-.fact .ib{margin-top:0}
+.facts{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+.facts .fact:last-child{grid-column:1/-1}
+@media(min-width:720px){.facts{grid-template-columns:repeat(3,1fr)}.facts .fact:last-child{grid-column:auto}}
+@media(min-width:1000px){.facts{grid-template-columns:repeat(5,1fr)}}
+.fact{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fact .ib{width:42px;height:42px;border-radius:13px;background:var(--brand-100);color:var(--brand);display:grid;place-items:center;flex:none;margin-top:0}
 .fact b{display:block;font-size:.98rem;color:var(--brand-800);line-height:1.25}
 .fact span{display:block;font-size:.86rem;color:var(--muted);margin-top:3px;line-height:1.4}
 .fact .num span{display:inline;margin:0;font-family:var(--font-title);font-size:1.5rem;font-weight:700;color:var(--brand);line-height:1}
 
-/* Marquee */
-.mq-wrap{margin-top:34px}
-.mq-label{text-align:center;font-size:.86rem;color:var(--muted);margin-bottom:14px}
-.mq-label a{display:inline-block;padding:12px 6px;margin:-12px 0}
-.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.mq-track{display:flex;gap:12px;width:max-content;animation:mq 60s linear infinite}
-.mq:hover .mq-track{animation-play-state:paused}
-.mq-track span{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 18px;font-size:.92rem;color:var(--brand-700);font-weight:500}
-@keyframes mq{to{transform:translateX(calc(-50% - 6px))}}
-
 /* Como funciona */
 .steps{position:relative;display:grid;gap:22px;counter-reset:s}
 .steps::before{content:"";position:absolute;left:25px;top:20px;bottom:20px;width:3px;border-radius:3px;background:linear-gradient(var(--brand-100),var(--brand-100))}
-.steps::after{content:"";position:absolute;left:21px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(201,162,75,.25),0 0 18px 4px rgba(201,162,75,.7);animation:travelY 5s ease-in-out infinite}
+.steps::after{content:"";position:absolute;left:21px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(201,162,75,.25),0 0 18px 4px rgba(201,162,75,.7);opacity:0}
+.steps.in::after{animation:travelY 3s ease-in-out .5s 1 both}
 @keyframes travelY{0%{top:20px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 30px);opacity:0}}
 .step{position:relative;padding-left:70px}
-.step .n{position:absolute;left:0;top:0;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--brand);color:var(--brand);display:grid;place-items:center;font-family:var(--font-title);font-weight:700;font-size:1.3rem;z-index:1;animation:ringp 5s ease-in-out infinite;animation-delay:var(--sd,0s)}
-@keyframes ringp{0%,100%{box-shadow:0 0 0 0 rgba(139,58,94,0)}20%{box-shadow:0 0 0 10px rgba(139,58,94,.16)}}
+.step .n{position:absolute;left:0;top:0;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--brand);color:var(--brand);display:grid;place-items:center;font-family:var(--font-title);font-weight:700;font-size:1.3rem;z-index:1}
 .step h3{font-size:1.28rem;margin-bottom:6px}
 .step p{color:var(--muted)}
 @media(min-width:900px){
   .steps{grid-template-columns:repeat(4,1fr);gap:26px}
   .steps::before{left:26px;right:26px;top:25px;bottom:auto;width:auto;height:3px}
-  .steps::after{left:26px;top:20px;animation:travelX 5.5s ease-in-out infinite}
+  .steps.in::after{left:26px;top:20px;animation:travelX 3.2s ease-in-out .5s 1 both}
   @keyframes travelX{0%{left:26px;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 38px);opacity:0}}
   .step{padding-left:0;padding-top:76px}
 }
@@ -258,12 +242,15 @@ section{position:relative;scroll-margin-top:84px}
 .tags span{font-size:.82rem;font-weight:500;background:var(--brand-100);color:var(--brand-700);padding:6px 12px;border-radius:99px}
 .b-lg .anim{height:132px}
 .b-lg h3{font-size:1.7rem}
-.heal{stroke-dasharray:120;animation:heal 4s ease-in-out infinite}
-@keyframes heal{0%{stroke-dashoffset:120}70%,100%{stroke-dashoffset:0}}
-.beat{transform-box:fill-box;transform-origin:center;animation:beat 1.6s ease-in-out infinite}
+.heal{stroke-dasharray:120}
+.reveal.in .heal{animation:heal 1.8s ease-out .4s both}
+@keyframes heal{0%{stroke-dashoffset:120}100%{stroke-dashoffset:0}}
+.beat{transform-box:fill-box;transform-origin:center}
+.card:hover .beat{animation:beat 1.6s ease-in-out infinite}
 @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
-.drop{animation:drop 2.4s ease-in infinite;opacity:0}
-.drop.d2{animation-delay:.8s}.drop.d3{animation-delay:1.6s}
+.drop{opacity:1}
+.card:hover .drop{animation:drop 2.4s ease-in infinite}
+.card:hover .drop.d2{animation-delay:.8s}.card:hover .drop.d3{animation-delay:1.6s}
 @keyframes drop{0%{transform:translateY(-18px);opacity:0}25%{opacity:1}100%{transform:translateY(26px);opacity:0}}
 .b-cta{background:linear-gradient(135deg,var(--brand-700),var(--brand-800));color:#fff;border-color:transparent;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
 .b-cta h3{color:#fff;margin:0 0 6px;font-size:1.5rem}
@@ -332,11 +319,10 @@ legend{font-family:var(--font-title);font-size:1.4rem;font-weight:600;color:var(
 /* Sobre */
 .about{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.about{grid-template-columns:.8fr 1.2fr;gap:56px}}
-.portrait{position:relative;max-width:380px;margin-inline:auto;width:100%}
-.arch{aspect-ratio:4/5;border-radius:999px 999px 28px 28px;background:linear-gradient(160deg,var(--rose),var(--brand-100) 55%,#fff);border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
-.arch .big{font-family:var(--font-title);font-size:7.5rem;font-weight:700;color:var(--brand);opacity:.9;line-height:1}
-.arch .ph{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);white-space:nowrap}
-.arch::before{content:"";position:absolute;width:140%;height:60%;bottom:-20%;left:-20%;background:radial-gradient(ellipse,rgba(201,162,75,.35),transparent 65%)}
+.portrait{position:relative;max-width:380px;margin-inline:auto;width:100%;padding:0 16px 16px 0}
+.portrait::before{content:"";position:absolute;inset:16px 0 0 16px;border-radius:28px;background:linear-gradient(160deg,var(--rose),var(--gold));opacity:.55}
+.arch{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:6px solid #fff;box-shadow:var(--shadow);background:var(--brand-100)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .about h2{font-size:clamp(1.9rem,4.4vw,2.8rem);margin:14px 0 16px}
 .about p{color:var(--muted);margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
@@ -361,7 +347,7 @@ details[open] summary .ico{transform:rotate(45deg)}
 /* CTA final */
 .final{padding:30px 0 90px}
 @property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
-.cta-box{position:relative;border-radius:34px;padding:3px;background:conic-gradient(from var(--ang),var(--gold),var(--rose),var(--brand),var(--rose),var(--gold));animation:spin 7s linear infinite}
+.cta-box{position:relative;border-radius:34px;padding:3px;background:conic-gradient(from var(--ang),var(--gold),var(--rose),var(--brand),var(--rose),var(--gold));animation:spin 14s linear infinite}
 @keyframes spin{to{--ang:360deg}}
 .cta-in{border-radius:31px;background:radial-gradient(700px 300px at 80% 0%,rgba(139,58,94,.9),transparent 70%),var(--brand-800);color:#fff;padding:clamp(34px,7vw,72px) clamp(20px,5vw,60px);text-align:center}
 .cta-in h2{color:#fff;font-size:clamp(2rem,5.4vw,3.4rem);max-width:760px;margin:0 auto}
@@ -386,6 +372,27 @@ footer .ph{background:#FFF1B8;color:#5B4300}
 .legal{margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.15);font-size:.84rem;color:#D4B8C5;line-height:1.55}
 .legal p+p{margin-top:8px}
 
+/* Você se reconhece? */
+.recog{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:700px){.recog{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.recog{grid-template-columns:repeat(3,1fr)}}
+.rcard{display:flex;flex-direction:column;justify-content:space-between;gap:18px;text-decoration:none;color:var(--ink);min-height:150px}
+.rcard .q{font-family:var(--font-title);font-weight:600;font-size:1.2rem;line-height:1.3;color:var(--brand-800)}
+@media(max-width:699px){.rcard{min-height:0;gap:12px;padding:18px}.rcard .q{font-size:1.08rem}.portrait{max-width:300px}.hv{max-width:340px}}
+.rcard .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;color:var(--brand);min-height:24px}
+.rcard .go .ico{width:18px;height:18px;transition:transform .25s var(--ease)}
+.rcard:hover .go .ico{transform:translateX(4px)}
+.rcard.ig{background:var(--brand-100);border-color:transparent}
+.skip{position:absolute;left:16px;top:-70px;background:var(--brand);color:#fff;padding:12px 18px;border-radius:12px;z-index:100;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+/* Cartões pequenos compactos no celular */
+@media(max-width:699px){
+  .bento .card:not(.b-lg):not(.b-cta){display:grid;grid-template-columns:76px 1fr;column-gap:16px;align-items:center;padding:16px}
+  .bento .card:not(.b-lg):not(.b-cta) .anim{grid-row:1/3;height:76px;width:76px}
+  .bento .card:not(.b-lg):not(.b-cta) h3{margin:0 0 4px;font-size:1.15rem;align-self:end}
+  .bento .card:not(.b-lg):not(.b-cta) p{align-self:start;font-size:.92rem}
+}
+
 /* Pausa de loops fora da tela */
 .is-off *,.is-off *::before,.is-off *::after{animation-play-state:paused !important}
 
@@ -394,20 +401,15 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none !important;transition:none !important}
   .js .reveal{opacity:1;transform:none}
-  .mq{-webkit-mask-image:none;mask-image:none}
-  .mq-track{width:auto;flex-wrap:wrap}
-  .mq-track [aria-hidden="true"]{display:none}
   .steps::after{display:none}
   .heal{stroke-dashoffset:0}
   .ripple{opacity:.35}
-  .drop{opacity:1}
-  .mini .bar b{transform:none}
-  .hv-card{transform:none !important}
 }
 </style>
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <!-- Ícones reutilizáveis -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -434,7 +436,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
 <header class="nav" id="top">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Lucilene Amorim, início da página">
-      <span class="mono" aria-hidden="true">L</span>
+      <span class="avatar" aria-hidden="true"><img src="foto-lucilene.jpg" alt="" width="46" height="46"></span>
       <span><b>Lucilene Amorim</b><small>Enfermeira · Laserterapia pediátrica</small></span>
     </a>
     <nav class="nav-links" aria-label="Seções da página">
@@ -458,13 +460,14 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   </a>
 </div>
 
-<main>
+<noscript><p style="padding:90px 16px 0;text-align:center">Para usar o formulário de agendamento, ative o JavaScript, ou chame a Lucilene direto no <a href="https://wa.link/bob2vh">WhatsApp</a>.</p></noscript>
+<main id="conteudo">
 <!-- HERO -->
 <section class="hero" data-loop>
   <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow reveal"><svg class="ico" style="width:16px;height:16px" aria-hidden="true"><use href="#i-heart"/></svg> Enfermeira · Laserterapia na pediatria</span>
+      <div class="who reveal"><span class="avatar" aria-hidden="true"><img src="foto-lucilene.jpg" alt="" width="46" height="46"></span><span><b>Lucilene Amorim</b><small>Enfermeira · COREN <em class="ph">PREENCHER</em></small></span></div>
       <h1 class="reveal" style="--d:.08s">Laserterapia pediátrica em casa, para <span class="sr-only">bebês e crianças</span><span class="typed-wrap" aria-hidden="true"><span id="typed">bebês</span><span class="caret"></span></span></h1>
       <p class="lead reveal" style="--d:.16s">Sou a Lucilene, enfermeira. Levo a laserterapia até a sua casa como apoio à cicatrização e ao alívio de dor e desconforto de bebês e crianças, com explicação clara e muito cuidado.</p>
       <div class="btn-row reveal" style="--d:.24s">
@@ -472,52 +475,15 @@ footer .ph{background:#FFF1B8;color:#5B4300}
         <a class="btn btn-ghost" href="#como">Ver como funciona</a>
       </div>
       <ul class="badges reveal" style="--d:.32s;list-style:none;padding:0">
-        <li class="badge"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg> Atendimento em casa</li>
-        <li class="badge"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg> Bebês e crianças</li>
+        <li class="badge"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg> Para bebês e crianças</li>
         <li class="badge"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Conversa antes de agendar</li>
       </ul>
     </div>
 
-    <div class="hv reveal" style="--d:.2s" id="hv">
-      <div class="hv-card" id="tilt">
-        <div class="win-bar"><i></i><i></i><i></i><span>Sessão em casa · ilustração</span></div>
-        <div class="scene">
-          <svg viewBox="0 0 320 190" role="img" aria-label="Ilustração de uma sessão de laserterapia: uma luz suave sobre a pele de uma criança">
-            <defs>
-              <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCE4EC"/><stop offset="1" stop-color="#F3DCE6"/></linearGradient>
-              <radialGradient id="lg"><stop offset="0" stop-color="#FF6A8A"/><stop offset="1" stop-color="#FF6A8A" stop-opacity="0"/></radialGradient>
-            </defs>
-            <rect width="320" height="190" rx="16" fill="url(#sg)"/>
-            <circle cx="40" cy="40" r="60" fill="#fff" opacity=".35"/>
-            <circle cx="290" cy="170" r="70" fill="#C9A24B" opacity=".12"/>
-            <!-- pele / bracinho -->
-            <ellipse cx="150" cy="130" rx="105" ry="42" fill="#F6CDBD"/>
-            <ellipse cx="150" cy="122" rx="95" ry="34" fill="#F9D9CB"/>
-            <ellipse cx="150" cy="120" rx="22" ry="8" fill="#EFA9A0" opacity=".7"/>
-            <!-- ondas de luz -->
-            <circle class="ripple r1" cx="150" cy="120" r="30" fill="none" stroke="#E5456B" stroke-width="2"/>
-            <circle class="ripple r2" cx="150" cy="120" r="30" fill="none" stroke="#E5456B" stroke-width="2"/>
-            <circle class="ripple r3" cx="150" cy="120" r="30" fill="none" stroke="#E5456B" stroke-width="2"/>
-            <!-- feixe e caneta -->
-            <path d="M232 28 L152 116" stroke="#FF6A8A" stroke-width="3" stroke-linecap="round" opacity=".55"/>
-            <circle class="glow" cx="152" cy="116" r="14" fill="url(#lg)"/>
-            <g transform="rotate(42 238 26)"><rect x="224" y="-20" width="26" height="62" rx="12" fill="#fff" stroke="#E3C7D3" stroke-width="2"/><rect x="224" y="30" width="26" height="12" rx="6" fill="#8B3A5E"/></g>
-            <!-- brilhos -->
-            <path class="twinkle" d="M54 150 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#C9A24B"/>
-            <path class="twinkle t2" d="M268 70 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" fill="#8B3A5E"/>
-            <path class="twinkle t3" d="M90 52 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" fill="#E5456B"/>
-          </svg>
-        </div>
-        <ul class="mini" aria-label="Etapas ilustrativas de uma sessão">
-          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span> Conversa inicial</li>
-          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span> Avaliação do caso</li>
-          <li><span class="live" aria-hidden="true"></span> Sessão em casa <span class="bar" aria-hidden="true"><b></b></span></li>
-        </ul>
-      </div>
-      <div class="fchip c1"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg> No conforto de casa</div>
-      <div class="fchip c2"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg> Com carinho e ciência</div>
-      <div class="fchip c3"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg> Explico cada passo</div>
-      <p class="hv-note">Imagem ilustrativa. Não representa resultado.</p>
+    <div class="hv reveal" style="--d:.2s">
+      <figure class="hero-photo"><img src="foto-lucilene.jpg" width="640" height="800" fetchpriority="high" alt="Lucilene Amorim, enfermeira, sorrindo com a mão apoiada no queixo"></figure>
+      <div class="fchip c1"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span>Cuidado com<br>carinho e ciência</span></div>
+      <div class="fchip c2"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg><span>Atendimento<br>em casa</span></div>
     </div>
   </div>
 </section>
@@ -529,18 +495,27 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       <div class="fact reveal"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></span><div><b>Atendimento domiciliar</b><span>Eu vou até você. Região: <em class="ph">PREENCHER: cidades atendidas</em></span></div></div>
       <div class="fact reveal" style="--d:.06s"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg></span><div><b>Enfermeira</b><span>Registro: <em class="ph">PREENCHER: COREN-UF nº</em></span></div></div>
       <div class="fact reveal" style="--d:.12s"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg></span><div><b>Foco em bebês e crianças</b><span>Laserterapia na pediatria</span></div></div>
-      <div class="fact reveal" style="--d:.18s"><span class="ib num" aria-hidden="true"><span data-count="3">3</span></span><div><b>Mãe de três filhos</b><span>Entendo a sua preocupação</span></div></div>
+      <div class="fact reveal" style="--d:.18s"><span class="ib num" aria-hidden="true"><span>3</span></span><div><b>Mãe de três filhos</b><span>Entendo a sua preocupação</span></div></div>
       <div class="fact reveal" style="--d:.24s"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span><div><b>Conversa antes de tudo</b><span>Avalio se faz sentido antes de agendar</span></div></div>
     </div>
+  </div>
+</section>
 
-    <div class="mq-wrap reveal" data-loop>
-      <p class="mq-label">Assuntos que eu explico no Instagram <a href="https://www.instagram.com/enfermeira.lucilene/" target="_blank" rel="noopener">@enfermeira.lucilene</a></p>
-      <div class="mq" aria-label="Lista de assuntos">
-        <div class="mq-track">
-          <span>Pós-operatório de amígdala</span><span>Pós-cesárea</span><span>Mão-pé-boca</span><span>Assadura</span><span>Dentinhos do bebê</span><span>Bronquiolite</span><span>Pós-operatório de gastrostomia</span><span>Postectomia</span><span>Taping na gestação</span><span>Amamentação</span><span>Furo de orelha</span><span>Saúde mental materna</span>
-          <span aria-hidden="true">Pós-operatório de amígdala</span><span aria-hidden="true">Pós-cesárea</span><span aria-hidden="true">Mão-pé-boca</span><span aria-hidden="true">Assadura</span><span aria-hidden="true">Dentinhos do bebê</span><span aria-hidden="true">Bronquiolite</span><span aria-hidden="true">Pós-operatório de gastrostomia</span><span aria-hidden="true">Postectomia</span><span aria-hidden="true">Taping na gestação</span><span aria-hidden="true">Amamentação</span><span aria-hidden="true">Furo de orelha</span><span aria-hidden="true">Saúde mental materna</span>
-        </div>
-      </div>
+<!-- VOCÊ SE RECONHECE? -->
+<section class="sec" id="situacoes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Situações comuns</span>
+      <h2>Você se reconhece em <span class="script">alguma</span> destas?</h2>
+      <p>Toque na que mais parece com a sua. Eu já deixo o pedido de horário com essa situação marcada.</p>
+    </div>
+    <div class="recog">
+      <a class="card rcard glow-card reveal" href="#agendar" data-issue="Pós-operatório"><span class="q">Seu filho operou a amígdala e está sofrendo no pós-operatório?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" style="--d:.06s" href="#agendar" data-issue="Pós-operatório"><span class="q">Seu filho fez gastrostomia e você está preocupada com a recuperação?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" style="--d:.12s" href="#agendar" data-issue="Assadura"><span class="q">Assadura que não melhora, mesmo depois de várias pomadas?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" href="#agendar" data-issue="Lesões ou dor na boca"><span class="q">Bolhinhas e dor na boca (como na mão-pé-boca) atrapalhando de comer?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" style="--d:.06s" href="#agendar" data-issue="Pós-parto ou pós-cesárea"><span class="q">Você acabou de ter o bebê e também precisa de cuidado?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard ig reveal" style="--d:.12s" href="https://www.instagram.com/enfermeira.lucilene/" target="_blank" rel="noopener"><span class="q">Tem outra dúvida? Eu explico vários assuntos no Instagram.</span><span class="go">@enfermeira.lucilene <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -553,7 +528,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       <h2>Do primeiro "oi" até a <span class="script">sessão em casa</span></h2>
       <p>Um passo de cada vez, sem pressa e sem surpresa. Você sabe o que vai acontecer antes de qualquer sessão.</p>
     </div>
-    <div class="steps">
+    <div class="steps once">
       <div class="step reveal" style="--sd:0s"><span class="n">1</span><h3>Você me chama no WhatsApp</h3><p>Conta a idade, o que está acontecendo e se há acompanhamento médico.</p></div>
       <div class="step reveal" style="--d:.1s;--sd:1s"><span class="n">2</span><h3>Conversa e avaliação</h3><p>Entendo o caso e digo com honestidade se a laserterapia faz sentido ou se é melhor falar com o médico antes.</p></div>
       <div class="step reveal" style="--d:.2s;--sd:2s"><span class="n">3</span><h3>Sessão na sua casa</h3><p>No horário combinado, explicando cada passo e respeitando o ritmo da criança.</p></div>
@@ -656,6 +631,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
             <label class="opt"><input type="radio" name="who" value="Mamãe (pós-parto ou pós-cesárea)"><span>Mamãe (pós-parto)</span></label>
             <label class="opt"><input type="radio" name="who" value="Outra situação"><span>Outra situação</span></label>
           </div>
+          <p class="hint" id="pre" aria-live="polite"></p>
         </fieldset>
 
         <fieldset class="panel" data-step="2" hidden>
@@ -745,10 +721,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
 <section class="sec" id="sobre">
   <div class="wrap about">
     <div class="portrait reveal">
-      <div class="arch" role="img" aria-label="Espaço reservado para a foto da Lucilene Amorim">
-        <span class="big" aria-hidden="true">L</span>
-        <em class="ph">PREENCHER: foto da Lucilene</em>
-      </div>
+      <figure class="arch" style="margin:0"><img src="foto-lucilene.jpg" width="640" height="800" loading="lazy" alt="Retrato da enfermeira Lucilene Amorim"></figure>
     </div>
     <div class="reveal" style="--d:.1s">
       <span class="eyebrow">Sobre mim</span>
@@ -897,7 +870,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
   /* ===== Entrada ao rolar ===== */
-  var reveals = $$('.reveal');
+  var reveals = $$('.reveal, .once');
   if(RM || !('IntersectionObserver' in window)){
     reveals.forEach(function(el){ el.classList.add('in'); });
   } else {
@@ -919,22 +892,6 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     $$('[data-loop]').forEach(function(el){ lo.observe(el); });
   }
 
-  /* ===== Contagem de números ===== */
-  $$('[data-count]').forEach(function(el){
-    var end = parseInt(el.getAttribute('data-count'),10);
-    if(RM || !('IntersectionObserver' in window)){ el.textContent = end; return; }
-    var co = new IntersectionObserver(function(en){
-      if(!en[0].isIntersecting) return; co.disconnect();
-      var t0 = performance.now(), dur = 1200;
-      (function step(t){
-        var p = Math.min(1,(t-t0)/dur), e = 1 - Math.pow(1-p,3);
-        el.textContent = Math.round(end*e);
-        if(p<1) requestAnimationFrame(step);
-      })(t0);
-    }, {threshold:.6});
-    el.textContent = 0; co.observe(el);
-  });
-
   /* ===== Texto digitado ===== */
   (function(){
     var el = $('#typed'); if(!el || RM) return;
@@ -952,23 +909,6 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       setTimeout(tick, delay);
     }
     setTimeout(tick, 2200);
-  })();
-
-  /* ===== Inclinação 3D leve no visual do hero ===== */
-  (function(){
-    var box = $('#hv'), card = $('#tilt');
-    if(!box || RM || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-    var raf = null;
-    box.addEventListener('pointermove', function(e){
-      var r = box.getBoundingClientRect();
-      var x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
-      if(raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(function(){
-        card.style.setProperty('--ry', (x*9).toFixed(2)+'deg');
-        card.style.setProperty('--rx', (-y*9).toFixed(2)+'deg');
-      });
-    });
-    box.addEventListener('pointerleave', function(){ card.style.setProperty('--rx','0deg'); card.style.setProperty('--ry','0deg'); });
   })();
 
   /* ===== Brilho que segue o mouse nos cartões ===== */
@@ -1007,7 +947,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   function val(name){ var c = form.querySelector('input[name="'+name+'"]:checked'); return c ? c.value : ''; }
 
   $$('input[name="issue"]', form).forEach(function(r){
-    r.addEventListener('change', function(){ $('#hint').textContent = r.getAttribute('data-hint') || ''; });
+    r.addEventListener('change', function(){ $('#hint').textContent = r.getAttribute('data-hint') || ''; $('#pre').textContent = 'Situação marcada: ' + r.value + '. Você pode trocar no passo 2.'; });
   });
 
   function buildMessage(){
@@ -1072,6 +1012,15 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       } else { toast('Abra o WhatsApp e conte o resumo do pedido.'); }
       window.open(CONFIG.fallbackLink, '_blank', 'noopener');
     }
+  });
+  // Cartões "Você se reconhece?": já marcam a situação e levam ao formulário
+  $$('.rcard[data-issue]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var r = form.querySelector('input[name="issue"][value="' + a.getAttribute('data-issue') + '"]');
+      if(r){ r.checked = true; r.dispatchEvent(new Event('change')); }
+      show(1);
+      track('situation_click', a.getAttribute('data-issue'));
+    });
   });
   back.addEventListener('click', function(){ if(cur>1) show(cur-1); });
   form.addEventListener('submit', function(e){ e.preventDefault(); });

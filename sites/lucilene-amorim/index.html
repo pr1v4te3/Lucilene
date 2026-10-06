@@ -24,7 +24,8 @@
 <meta property="og:image" content="https://SEU-DOMINIO/og-image.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
+<!-- [PREENCHER] Ao ativar o og:image acima, troque para content="summary_large_image". Se tiver endereco final, adicione tambem: <link rel="canonical" href="https://SEU-DOMINIO/"> e <meta property="og:url" content="https://SEU-DOMINIO/"> -->
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238B3A5E'/%3E%3Cpath d='M23 14v32h19' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='44' cy='20' r='4' fill='%23F7C9D8'/%3E%3C/svg%3E">
 
@@ -72,6 +73,7 @@
   --bg:#FFF9FB;
   --surface:#FFFFFF;
   --ok:#23704F;
+  --field:#A5859A;
   --warn-bg:#FFF4D6;
   --warn-ink:#6B4A00;
   --radius:22px;
@@ -81,8 +83,8 @@
   --shadow:0 18px 50px -24px rgba(110,44,74,.45);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;font-family:var(--font-text);color:var(--ink);background:var(--bg);line-height:1.6;font-size:17px;overflow-x:clip;padding-bottom:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px;scroll-padding-bottom:96px}
+body{margin:0;font-family:var(--font-text);color:var(--ink);background:var(--bg);line-height:1.6;font-size:1.0625rem;overflow-x:clip;padding-bottom:0}
 img,svg{max-width:100%;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:var(--font-title);line-height:1.12;margin:0;color:var(--brand-800);letter-spacing:-.01em}
@@ -122,7 +124,7 @@ section{position:relative;scroll-margin-top:84px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(110,44,74,.9)}
 .btn-primary::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);pointer-events:none}
 .btn-primary:hover::after{animation:shine 1s ease-out 1}
-.hero .btn-primary::after{animation:shine 6.5s ease-in-out 2s infinite}
+.hero .btn-primary::after{animation:shine 6.5s ease-in-out 2s 3}
 @keyframes shine{0%,70%{left:-60%}100%{left:130%}}
 .btn-ghost{background:rgba(255,255,255,.7);color:var(--brand-700);border-color:var(--brand-100);backdrop-filter:blur(6px)}
 .btn-ghost:hover{border-color:var(--brand);transform:translateY(-2px)}
@@ -144,7 +146,8 @@ section{position:relative;scroll-margin-top:84px}
 .nav-links a:hover{background:var(--brand-100)}
 .nav .btn{display:none}
 .progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:linear-gradient(90deg,var(--gold),var(--brand));transform-origin:0 50%;transform:scaleX(var(--p,0))}
-@media(min-width:960px){.nav-links{display:flex}}
+@media(min-width:1100px){.nav-links{display:flex}}
+.nav .btn{white-space:nowrap}
 @media(min-width:640px){.nav .btn{display:inline-flex}}
 
 /* Barra fixa no celular */
@@ -159,13 +162,13 @@ section{position:relative;scroll-margin-top:84px}
 
 /* HERO */
 .hero{padding:118px 0 56px;overflow:hidden}
-.aurora{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.aurora{position:absolute;inset:0;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent);mask-image:linear-gradient(to bottom,#000 68%,transparent)}
 .aurora svg{position:absolute;inset:0;width:100%;height:100%}
 .hero-grid{display:grid;gap:44px;align-items:center}
 @media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:54px}.hero{padding-top:132px}}
 .hero h1{font-size:clamp(2.2rem,6.4vw,4.1rem);margin-top:18px;letter-spacing:-.02em}
-.typed-wrap{color:var(--brand);font-style:italic;white-space:normal}
-.caret{display:inline-block;width:3px;height:.9em;background:var(--gold);margin-left:3px;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+.typed-wrap{position:relative;color:var(--brand);font-style:italic;white-space:normal}
+.caret{position:absolute;right:-8px;top:.14em;width:3px;height:.85em;background:var(--gold);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .hero .lead{margin-top:20px;font-size:clamp(1.05rem,2.4vw,1.2rem);color:var(--muted);max-width:560px}
 
@@ -200,8 +203,8 @@ section{position:relative;scroll-margin-top:84px}
 .trust{padding:8px 0 28px}
 .facts{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
 .facts .fact:last-child{grid-column:1/-1}
-@media(min-width:720px){.facts{grid-template-columns:repeat(3,1fr)}.facts .fact:last-child{grid-column:auto}}
-@media(min-width:1000px){.facts{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:720px){.facts{grid-template-columns:repeat(6,1fr)}.facts .fact{grid-column:span 2}.facts .fact:nth-child(n+4){grid-column:span 3}}
+@media(min-width:1000px){.facts{grid-template-columns:repeat(5,1fr)}.facts .fact,.facts .fact:nth-child(n+4){grid-column:auto}}
 .fact{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
 .fact .ib{width:42px;height:42px;border-radius:13px;background:var(--brand-100);color:var(--brand);display:grid;place-items:center;flex:none;margin-top:0}
 .fact b{display:block;font-size:.98rem;color:var(--brand-800);line-height:1.25}
@@ -210,19 +213,19 @@ section{position:relative;scroll-margin-top:84px}
 
 /* Como funciona */
 .steps{position:relative;display:grid;gap:22px;counter-reset:s}
-.steps::before{content:"";position:absolute;left:25px;top:20px;bottom:20px;width:3px;border-radius:3px;background:linear-gradient(var(--brand-100),var(--brand-100))}
+.steps::before{content:"";position:absolute;left:25px;top:20px;bottom:20px;width:3px;border-radius:3px;background:linear-gradient(to bottom,var(--brand-100) 0,var(--brand-100) calc(100% - 130px),transparent calc(100% - 80px))}
 .steps::after{content:"";position:absolute;left:21px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(201,162,75,.25),0 0 18px 4px rgba(201,162,75,.7);opacity:0}
 .steps.in::after{animation:travelY 3s ease-in-out .5s 1 both}
-@keyframes travelY{0%{top:20px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 30px);opacity:0}}
+@keyframes travelY{0%{top:20px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 100px);opacity:0}}
 .step{position:relative;padding-left:70px}
 .step .n{position:absolute;left:0;top:0;width:52px;height:52px;border-radius:50%;background:#fff;border:3px solid var(--brand);color:var(--brand);display:grid;place-items:center;font-family:var(--font-title);font-weight:700;font-size:1.3rem;z-index:1}
 .step h3{font-size:1.28rem;margin-bottom:6px}
 .step p{color:var(--muted)}
 @media(min-width:900px){
   .steps{grid-template-columns:repeat(4,1fr);gap:26px}
-  .steps::before{left:26px;right:26px;top:25px;bottom:auto;width:auto;height:3px}
+  .steps::before{left:26px;right:calc((100% - 78px)/4 - 26px);top:25px;bottom:auto;width:auto;height:3px;background:var(--brand-100)}
   .steps.in::after{left:26px;top:20px;animation:travelX 3.2s ease-in-out .5s 1 both}
-  @keyframes travelX{0%{left:26px;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 38px);opacity:0}}
+  @keyframes travelX{0%{left:26px;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - (100% - 78px)/4 + 20px);opacity:0}}
   .step{padding-left:0;padding-top:76px}
 }
 .ph-note{margin-top:22px;font-size:.88rem;color:var(--muted)}
@@ -230,7 +233,7 @@ section{position:relative;scroll-margin-top:84px}
 /* Bento */
 .bento{display:grid;gap:16px;grid-template-columns:1fr}
 @media(min-width:700px){.bento{grid-template-columns:repeat(6,1fr)}.b-lg{grid-column:span 4}.b-md{grid-column:span 2}.b-md3{grid-column:span 3}.b-full{grid-column:span 6}}
-@media(min-width:700px) and (max-width:999px){.b-md{grid-column:span 3}}
+@media(min-width:700px) and (max-width:999px){.b-md{grid-column:span 3}.b-lg{grid-column:span 6}}
 .card{position:relative;background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:var(--radius);padding:26px;overflow:hidden;isolation:isolate;transition:transform .3s var(--ease),box-shadow .3s}
 .card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(247,201,216,.75),transparent 60%)}
 .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
@@ -282,7 +285,7 @@ legend{font-family:var(--font-title);font-size:1.4rem;font-weight:600;color:var(
 .opts{display:flex;flex-wrap:wrap;gap:10px}
 .opt{position:relative}
 .opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;padding:10px 18px;border-radius:14px;border:2px solid var(--line);background:#fff;font-weight:500;font-size:.96rem;color:var(--ink);transition:all .2s;line-height:1.25}
+.opt span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;padding:10px 18px;border-radius:14px;border:2px solid var(--field);background:#fff;font-weight:500;font-size:.96rem;color:var(--ink);transition:all .2s;line-height:1.25}
 .opt input:hover+span{border-color:var(--brand)}
 .opt input:checked+span{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 10px 22px -12px rgba(110,44,74,.9)}
 .opt input:focus-visible+span{outline:3px solid var(--brand);outline-offset:3px}
@@ -294,7 +297,7 @@ legend{font-family:var(--font-title);font-size:1.4rem;font-weight:600;color:var(
 .hint:empty{display:none}
 .field{display:grid;gap:6px;margin-bottom:14px}
 .field label{font-size:.9rem;font-weight:600;color:var(--brand-800)}
-.field input,.field textarea,.field select{width:100%;min-height:48px;padding:12px 14px;border-radius:14px;border:2px solid var(--line);font:inherit;font-size:1rem;color:var(--ink);background:#fff}
+.field input,.field textarea,.field select{width:100%;min-height:48px;padding:12px 14px;border-radius:14px;border:2px solid var(--field);font:inherit;font-size:1rem;color:var(--ink);background:#fff}
 .field textarea{min-height:84px;resize:vertical}
 .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(139,58,94,.15)}
 .err{min-height:1.3em;color:#A3173F;font-size:.9rem;font-weight:600;margin-top:12px}
@@ -349,7 +352,7 @@ details[open] summary .ico{transform:rotate(45deg)}
 /* CTA final */
 .final{padding:30px 0 90px}
 @property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
-.cta-box{position:relative;border-radius:34px;padding:3px;background:conic-gradient(from var(--ang),var(--gold),var(--rose),var(--brand),var(--rose),var(--gold));animation:spin 14s linear infinite}
+.cta-box{position:relative;border-radius:34px;padding:3px;background:conic-gradient(from var(--ang),var(--gold),var(--rose),var(--brand),var(--rose),var(--gold));animation:spin 14s linear 2}
 @keyframes spin{to{--ang:360deg}}
 .cta-in{border-radius:31px;background:radial-gradient(700px 300px at 80% 0%,rgba(139,58,94,.9),transparent 70%),var(--brand-800);color:#fff;padding:clamp(34px,7vw,72px) clamp(20px,5vw,60px);text-align:center}
 .cta-in h2{color:#fff;font-size:clamp(2rem,5.4vw,3.4rem);max-width:760px;margin:0 auto}
@@ -365,7 +368,7 @@ details[open] summary .ico{transform:rotate(45deg)}
 footer{background:var(--brand-800);color:#E9D2DC;padding:50px 0 26px}
 .foot{display:grid;gap:30px}
 @media(min-width:820px){.foot{grid-template-columns:1.2fr 1fr 1fr}}
-footer h3{color:#fff;font-size:1.1rem;margin-bottom:12px;font-family:var(--font-text);font-weight:600}
+footer h2{color:#fff;font-size:1.1rem;margin-bottom:12px;font-family:var(--font-text);font-weight:600}
 footer a{color:#fff;text-underline-offset:3px}
 footer li{margin:8px 0}
 footer ul{list-style:none;margin:0;padding:0}
@@ -384,6 +387,19 @@ footer .ph{background:#FFF1B8;color:#5B4300}
 .sign small{display:block;font-family:var(--font-text);font-size:.82rem;color:var(--muted);margin-top:2px}
 .anim{background:linear-gradient(135deg,var(--brand-50),var(--brand-100))}
 .arch img{object-position:50% 14%}
+
+/* Correcoes da revisao */
+.hero-note{margin-top:16px;font-size:.84rem;color:var(--muted)}
+.form-card{scroll-margin-top:90px}
+legend:focus{outline:none}
+.about .sign{color:var(--gold-script);margin:14px 0 0}
+.about .sign small{color:var(--muted)}
+.cta-in :focus-visible,footer :focus-visible,.b-cta :focus-visible{outline-color:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.28)}
+.js .card.reveal{transition:opacity .75s var(--ease) var(--d,0s),transform .75s var(--ease) var(--d,0s),box-shadow .3s}
+.js .card.reveal.in:hover{transform:translateY(-3px);transition-delay:0s}
+html:not(.js) #bookForm{display:none}
+@media(max-width:400px){.script{white-space:normal}}
+@media(forced-colors:active){.opt input:checked+span{outline:3px solid Highlight;outline-offset:-3px;forced-color-adjust:none;background:Highlight;color:HighlightText}}
 
 /* Você se reconhece? */
 .recog{display:grid;gap:14px;grid-template-columns:1fr}
@@ -404,6 +420,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   .bento .card:not(.b-lg):not(.b-cta) .anim{grid-row:1/3;height:76px;width:76px}
   .bento .card:not(.b-lg):not(.b-cta) h3{margin:0 0 4px;font-size:1.15rem;align-self:end}
   .bento .card:not(.b-lg):not(.b-cta) p{align-self:start;font-size:.92rem}
+  .bento .card:not(.b-lg):not(.b-cta) .tags{grid-column:1/-1;margin-top:12px}
 }
 
 /* Pausa de loops fora da tela */
@@ -415,6 +432,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   *,*::before,*::after{animation:none !important;transition:none !important}
   .js .reveal{opacity:1;transform:none}
   .steps::after{display:none}
+  .caret{display:none}
   .heal{stroke-dashoffset:0}
   .ripple{opacity:.35}
 }
@@ -466,12 +484,6 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
-<!-- Barra fixa no celular -->
-<div class="mbar">
-  <a class="btn btn-primary" data-wa="mobile-bar" data-msg="Olá, Lucilene! Vi sua página e gostaria de agendar uma sessão de laserterapia pediátrica." href="https://wa.link/bob2vh" target="_blank" rel="noopener">
-    <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Agendar pelo WhatsApp
-  </a>
-</div>
 
 <noscript><p style="padding:90px 16px 0;text-align:center">Para usar o formulário de agendamento, ative o JavaScript, ou chame a Lucilene direto no <a href="https://wa.link/bob2vh">WhatsApp</a>.</p></noscript>
 <main id="conteudo">
@@ -492,6 +504,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
         <a class="btn btn-primary" data-wa="hero" data-msg="Olá, Lucilene! Vi sua página e gostaria de agendar uma sessão de laserterapia pediátrica em casa." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Quero agendar uma sessão</a>
         <a class="btn btn-ghost" href="#como">Ver como funciona</a>
       </div>
+      <p class=\"hero-note reveal\" style=\"--d:.3s\">Em caso de emergência, ligue 192 (SAMU) ou vá ao pronto-socorro.</p>
     </div>
 
     <div class="hv reveal" style="--d:.2s">
@@ -524,11 +537,11 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       <p>Toque na que mais parece com a sua. Eu já deixo o pedido de horário com essa situação marcada.</p>
     </div>
     <div class="recog">
-      <a class="card rcard glow-card reveal" href="#agendar" data-issue="Pós-operatório"><span class="q">Seu filho operou a amígdala e está sofrendo no pós-operatório?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="card rcard glow-card reveal" style="--d:.06s" href="#agendar" data-issue="Pós-operatório"><span class="q">Seu filho fez gastrostomia e você está preocupada com a recuperação?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="card rcard glow-card reveal" style="--d:.12s" href="#agendar" data-issue="Assadura"><span class="q">Assadura que não melhora, mesmo depois de várias pomadas?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="card rcard glow-card reveal" href="#agendar" data-issue="Lesões ou dor na boca"><span class="q">Bolhinhas e dor na boca (como na mão-pé-boca) atrapalhando de comer?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-      <a class="card rcard glow-card reveal" style="--d:.06s" href="#agendar" data-issue="Pós-parto ou pós-cesárea"><span class="q">Você acabou de ter o bebê e também precisa de cuidado?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" href="#pedido" data-issue="Pós-operatório"><span class="q">Seu filho operou a amígdala e está sofrendo no pós-operatório?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" style="--d:.06s" href="#pedido" data-issue="Pós-operatório"><span class="q">Seu filho fez gastrostomia e a recuperação preocupa você?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" style="--d:.12s" href="#pedido" data-issue="Assadura"><span class="q">Assadura que não melhora, mesmo depois de várias pomadas?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" href="#pedido" data-issue="Lesões ou dor na boca"><span class="q">Bolhinhas e dor na boca (como na mão-pé-boca) atrapalhando de comer?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      <a class="card rcard glow-card reveal" style="--d:.06s" href="#pedido" data-issue="Pós-parto ou pós-cesárea"><span class="q">Você acabou de ter o bebê e também precisa de cuidado?</span><span class="go">Pedir horário para isso <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
       <a class="card rcard ig reveal" style="--d:.12s" href="https://www.instagram.com/enfermeira.lucilene/" target="_blank" rel="noopener"><span class="q">Tem outra dúvida? Eu explico vários assuntos no Instagram.</span><span class="go">@enfermeira.lucilene <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
     </div>
   </div>
@@ -543,13 +556,13 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       <p>Um passo de cada vez, sem pressa e sem surpresa. Você sabe o que vai acontecer antes de qualquer sessão.</p>
     </div>
     <div class="steps once">
-      <div class="step reveal" style="--sd:0s"><span class="n">1</span><h3>Você me chama no WhatsApp</h3><p>Conta a idade, o que está acontecendo e se há acompanhamento médico.</p></div>
+      <div class="step reveal" style="--sd:0s"><span class="n">1</span><h3>Mensagem no WhatsApp</h3><p>Conta a idade, o que está acontecendo e se há acompanhamento médico.</p></div>
       <div class="step reveal" style="--d:.1s;--sd:1s"><span class="n">2</span><h3>Conversa e avaliação</h3><p>Entendo o caso e digo com honestidade se a laserterapia faz sentido ou se é melhor falar com o médico antes.</p></div>
       <div class="step reveal" style="--d:.2s;--sd:2s"><span class="n">3</span><h3>Sessão na sua casa</h3><p>No horário combinado, explicando cada passo e respeitando o ritmo da criança.</p></div>
       <div class="step reveal" style="--d:.3s;--sd:3s"><span class="n">4</span><h3>Orientações para depois</h3><p>Você recebe orientações de cuidado e combinamos juntas se novas sessões fazem sentido.</p></div>
     </div>
     <p class="ph-note">As etapas acima são um roteiro-base. <em class="ph">PREENCHER: confirmar com a Lucilene</em></p>
-    <div class="sec-cta reveal"><a class="btn btn-primary" data-wa="como" data-msg="Olá, Lucilene! Li como funciona o atendimento e gostaria de conversar sobre o caso do meu filho(a)." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Começar pela conversa</a></div>
+    <div class="sec-cta reveal"><a class="btn btn-primary" data-wa="como" data-msg="Olá, Lucilene! Li como funciona o atendimento e gostaria de conversar sobre o caso da criança." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Começar pela conversa</a></div>
   </div>
 </section>
 
@@ -559,7 +572,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     <div class="sec-head reveal">
       <span class="eyebrow">Cuidados</span>
       <h2>Onde eu posso <span class="script">ajudar</span></h2>
-      <p>Situações em que mães e pais mais me procuram. Cada caso é avaliado antes, e nem toda situação precisa de laserterapia.</p>
+      <p>Situações comuns em que a laserterapia pode ser um apoio. Cada caso é avaliado antes, e nem toda situação precisa dela.</p>
     </div>
     <div class="bento">
       <article class="card glow-card b-lg reveal">
@@ -604,7 +617,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
           <h3>Não achou o seu caso aqui?</h3>
           <p>Me conte o que está acontecendo. Se eu puder ajudar, digo como. Se não puder, digo isso também e indico o caminho mais seguro.</p>
         </div>
-        <a class="btn btn-light" data-wa="servicos" data-msg="Olá, Lucilene! Gostaria de contar o caso do meu filho(a) para saber se você pode ajudar." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Contar meu caso</a>
+        <a class="btn btn-light" data-wa="servicos" data-msg="Olá, Lucilene! Gostaria de contar o caso da criança para saber se você pode ajudar." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Contar meu caso</a>
       </article>
     </div>
     <p class="ph-note">Valores das sessões: <em class="ph">PREENCHER: preço ou "sob avaliação"</em> · Lista de cuidados: <em class="ph">PREENCHER: confirmar com a Lucilene</em></p>
@@ -617,10 +630,10 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     <div class="book-aside reveal">
       <span class="eyebrow"><svg class="ico" style="width:16px;height:16px" aria-hidden="true"><use href="#i-cal"/></svg> Agendamento</span>
       <h2>Peça o seu horário em <span class="script">1 minuto</span></h2>
-      <p>Responda 4 passos rápidos. Eu monto a mensagem e você só envia pelo WhatsApp. Assim eu já chego sabendo o essencial do caso.</p>
+      <p>Responda 4 passos rápidos. Eu monto o resumo do pedido e você leva para o WhatsApp. Assim eu já chego sabendo o essencial do caso.</p>
       <p style="margin-top:12px"><strong>Importante:</strong> este formulário é um pedido de horário. O dia e a hora só ficam combinados depois que eu confirmar com você pelo WhatsApp.</p>
       <div class="alert" role="note">
-        <b><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg> Antes de agendar</b>
+        <b><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg> Procure urgência (SAMU 192) se houver:</b>
         <ul>
           <li>Dificuldade para respirar ou lábios arroxeados</li>
           <li>Muita sonolência ou dificuldade de acordar</li>
@@ -629,17 +642,19 @@ footer .ph{background:#FFF1B8;color:#5B4300}
           <li>Recusa total de líquidos</li>
           <li>Febre em bebê com menos de 3 meses</li>
         </ul>
-        <p><strong>Nesses casos, não espere:</strong> ligue 192 (SAMU) ou vá ao pronto-socorro mais próximo.</p>
+        <p><strong>Nesses casos, não espere o agendamento:</strong> ligue 192 (SAMU) ou vá ao pronto-socorro mais próximo.</p>
+        <p>Se a criança foi operada e há sangramento, febre ou dor forte, procure primeiro a equipe médica que fez a cirurgia.</p>
       </div>
     </div>
 
-    <div class="form-card reveal" style="--d:.1s">
+    <div class="form-card reveal" style="--d:.1s" id="pedido">
+      <noscript><p>Para pedir o horário por aqui é preciso ativar o JavaScript. Você também pode chamar direto no <a href="https://wa.link/bob2vh">WhatsApp</a>.</p></noscript>
       <form id="bookForm" novalidate>
         <div class="stepper" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
         <p class="step-label" id="stepLabel" aria-live="polite">Passo 1 de 4</p>
 
         <fieldset class="panel" data-step="1">
-          <legend>Quem vai ser atendido(a)?</legend>
+          <legend>Quem vai ser atendido?</legend>
           <div class="opts">
             <label class="opt"><input type="radio" name="who" value="Bebê (até 1 ano)"><span>Bebê (até 1 ano)</span></label>
             <label class="opt"><input type="radio" name="who" value="Criança (1 a 12 anos)"><span>Criança (1 a 12 anos)</span></label>
@@ -652,9 +667,9 @@ footer .ph{background:#FFF1B8;color:#5B4300}
         <fieldset class="panel" data-step="2" hidden>
           <legend>O que está acontecendo?</legend>
           <div class="opts">
-            <label class="opt"><input type="radio" name="issue" value="Pós-operatório" data-hint="Pós-operatório: o médico do seu filho(a) continua sendo a referência. Me conte qual foi a cirurgia e as orientações que vocês receberam."><span>Pós-operatório</span></label>
+            <label class="opt"><input type="radio" name="issue" value="Pós-operatório" data-hint="Pós-operatório: o médico da criança continua sendo a referência. Me conte qual foi a cirurgia e as orientações que vocês receberam."><span>Pós-operatório</span></label>
             <label class="opt"><input type="radio" name="issue" value="Ferida ou lesão na pele" data-hint="Conte onde fica a lesão e há quanto tempo está assim. Se puder, me envie uma foto pelo WhatsApp."><span>Ferida ou lesão na pele</span></label>
-            <label class="opt"><input type="radio" name="issue" value="Lesões ou dor na boca" data-hint="Lesões na boca podem dificultar comer e beber. Se estiver recusando todos os líquidos, procure atendimento médico."><span>Lesões ou dor na boca</span></label>
+            <label class="opt"><input type="radio" name="issue" value="Lesões ou dor na boca" data-hint="Lesões na boca podem dificultar comer e beber. Se estiver recusando todos os líquidos, procure um pronto-socorro."><span>Lesões ou dor na boca</span></label>
             <label class="opt"><input type="radio" name="issue" value="Assadura" data-hint="Se a assadura não melhora com os cuidados de sempre, me conte o que já foi usado."><span>Assadura</span></label>
             <label class="opt"><input type="radio" name="issue" value="Dor ou desconforto" data-hint="Descreva onde dói e desde quando. Dor forte ou sem causa clara merece avaliação médica antes."><span>Dor ou desconforto</span></label>
             <label class="opt"><input type="radio" name="issue" value="Pós-parto ou pós-cesárea" data-hint="Conte quando foi o parto e se há alguma orientação da sua médica ou obstetra."><span>Pós-parto ou cesárea</span></label>
@@ -693,7 +708,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
           <button type="button" class="btn btn-ghost" id="back" hidden>Voltar</button>
           <button type="button" class="btn btn-primary" id="next">Continuar <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
-        <p class="fine">Seus dados não ficam guardados nesta página: eles só vão para o WhatsApp quando você clicar em enviar.</p>
+        <p class="fine" id="finePrint">Seus dados não ficam guardados nesta página: eles só vão para o WhatsApp quando você clicar em enviar.</p>
       </form>
     </div>
   </div>
@@ -724,7 +739,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
           <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Não receito nem suspendo remédios ou tratamentos indicados pelo médico.</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Não prometo cura, resultado nem prazo. Cada criança responde de um jeito.</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Não atendo emergências: nesses casos, SAMU 192 ou pronto-socorro.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg> Se a laserterapia não fizer sentido no seu caso, eu falo e oriento o caminho certo.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Se a laserterapia não fizer sentido no seu caso, eu falo e oriento o caminho certo.</li>
         </ul>
       </div>
     </div>
@@ -743,12 +758,12 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       <span class="eyebrow">Sobre mim</span>
       <h2>Oi, eu sou a <span class="script">Lucilene</span></h2>
       <div class="chips" aria-label="Um pouco sobre mim"><span>Enfermeira</span><span>Empresária</span><span>Mãe de três filhos</span><span>Casada</span><span>Cristã</span></div>
-      <p>Sou enfermeira e trabalho com laserterapia na pediatria. Também sou mãe, por isso sei como é ver um filho com dor ou recém-operado e não saber o que fazer primeiro.</p>
+      <p>Sou enfermeira e trabalho com laserterapia na pediatria. Também sou mãe de três filhos e entendo a preocupação de quem cuida de uma criança.</p>
       <p>No Instagram eu explico, em linguagem simples, assuntos como pós-operatório infantil, assaduras, mão-pé-boca, amamentação e cuidados da mamãe. Aqui eu levo o mesmo cuidado para dentro da sua casa.</p>
       <p><em class="ph">PREENCHER: sua história (por que escolheu a laserterapia pediátrica), formação, cursos e tempo de experiência</em></p>
       <div class="pillars">
         <div class="pillar"><b>Explico antes</b><span>Você entende o que vou fazer antes de eu fazer.</span></div>
-        <div class="pillar"><b>No ritmo dela(e)</b><span>Respeito o tempo e o medo da criança.</span></div>
+        <div class="pillar"><b>No ritmo da criança</b><span>Respeito o tempo e os medos dela.</span></div>
         <div class="pillar"><b>Junto do médico</b><span>Eu somo ao cuidado médico, nunca no lugar dele.</span></div>
       </div>
       <div class="sec-cta"><a class="btn btn-primary" data-wa="sobre" data-msg="Olá, Lucilene! Conheci mais sobre você na página e gostaria de agendar uma conversa." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Falar com a Lucilene</a>
@@ -766,7 +781,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     </div>
     <div class="faq reveal" id="faq">
       <details><summary>Vai doer? Meu filho vai ter medo? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
-        <div class="ans"><p>A laserterapia de baixa intensidade é aplicada por fora, sem agulhas e sem cortes. Eu explico cada passo antes, mostro o aparelho e respeito o ritmo da criança. Cada criança reage de um jeito, por isso a conversa vem primeiro.</p></div></details>
+        <div class="ans"><p>Cada criança reage de um jeito, e eu não prometo que será totalmente tranquilo. A laserterapia de baixa intensidade é aplicada por fora, sem agulhas e sem cortes. Eu explico cada passo antes, mostro o aparelho e respeito o ritmo da criança.</p></div></details>
       <details><summary>Funciona mesmo? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
         <div class="ans"><p>A fotobiomodulação é usada como apoio à cicatrização e ao alívio de dor, mas não existe promessa de resultado nem de prazo. Cada criança responde de um jeito. Por isso eu avalio o caso e, se não fizer sentido, eu te digo.</p></div></details>
       <details><summary>Substitui o pediatra ou o tratamento do médico? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
@@ -774,13 +789,13 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       <details><summary>Quanto custa? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
         <div class="ans"><p><em class="ph">PREENCHER: valor da sessão, formas de pagamento e se há pacote</em></p></div></details>
       <details><summary>Quantas sessões vou precisar? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
-        <div class="ans"><p>Depende de cada caso, e só dá para dizer depois da conversa e da avaliação. Eu não prometo um número de sessões antes de entender a situação.</p></div></details>
+        <div class="ans"><p>Depende de cada caso, e só dá para dizer depois da conversa e da avaliação. Não prometo um número de sessões: isso depende de cada caso e é conversado depois da avaliação.</p></div></details>
       <details><summary>Você atende na minha região? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
         <div class="ans"><p><em class="ph">PREENCHER: cidades e bairros atendidos, e dias e horários de atendimento</em></p><p>Dúvida? Mande o seu bairro pelo WhatsApp que eu confirmo.</p></div></details>
       <details><summary>Como é o primeiro contato? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
         <div class="ans"><p>Você me chama no WhatsApp, conta o que está acontecendo e eu respondo com calma. Só depois combinamos o horário da sessão, se fizer sentido para o caso.</p></div></details>
       <details><summary>Preciso me preparar de alguma forma? <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></summary>
-        <div class="ans"><p>Combinamos isso na conversa. Se seu filho(a) está em acompanhamento médico, vale ter à mão as orientações e os nomes dos remédios em uso. <em class="ph">PREENCHER: confirmar com a Lucilene</em></p></div></details>
+        <div class="ans"><p>Combinamos isso na conversa. Se a criança está em acompanhamento médico, vale ter à mão as orientações e os nomes dos remédios em uso. <em class="ph">PREENCHER: confirmar com a Lucilene</em></p></div></details>
     </div>
     <div class="sec-cta reveal"><a class="btn btn-primary" data-wa="faq" data-msg="Olá, Lucilene! Tenho uma dúvida sobre o atendimento e gostaria de conversar." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Tirar minha dúvida no WhatsApp</a></div>
   </div>
@@ -792,11 +807,11 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     <div class="cta-box reveal">
       <div class="cta-in">
         <div class="cta-who"><span class="avatar" aria-hidden="true"><img src="avatar-lucilene.jpg" alt="" width="160" height="160" loading="lazy"></span><span><b>Lucilene Amorim</b><small>Responde pelo WhatsApp</small></span></div>
-        <h2>Seu filho merece um cuidado com <span class="script">carinho e ciência</span></h2>
+        <h2>Seu filho merece um cuidado com <span class="script">carinho e atenção</span></h2>
         <p>Me conte o que está acontecendo. Eu respondo com calma e digo com honestidade como posso ajudar.</p>
         <div class="btn-row">
           <a class="btn btn-primary" data-wa="final" data-msg="Olá, Lucilene! Gostaria de agendar uma sessão de laserterapia pediátrica em casa. Pode me passar os horários?" href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Agendar pelo WhatsApp</a>
-          <a class="btn btn-ghost" href="#agendar"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg> Preencher o pedido</a>
+          <a class="btn btn-ghost" href="#pedido"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg> Preencher o pedido</a>
         </div>
       </div>
     </div>
@@ -808,18 +823,18 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   <div class="wrap">
     <div class="foot">
       <div>
-        <h3>Lucilene Amorim</h3>
+        <h2>Lucilene Amorim</h2>
         <p>Enfermeira · Laserterapia na pediatria<br>Registro profissional: <em class="ph">PREENCHER: COREN-UF nº</em><br>CNPJ (se houver): <em class="ph">PREENCHER</em></p>
       </div>
       <div>
-        <h3>Contato</h3>
+        <h2>Contato</h2>
         <ul>
           <li><a class="li" data-wa="footer" data-msg="Olá, Lucilene! Gostaria de conversar sobre o atendimento." href="https://wa.link/bob2vh" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> WhatsApp <span class="ph">PREENCHER: número com DDD</span></a></li>
           <li><a class="li" href="https://www.instagram.com/enfermeira.lucilene/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-insta"/></svg> @enfermeira.lucilene</a></li>
         </ul>
       </div>
       <div>
-        <h3>Atendimento</h3>
+        <h2>Atendimento</h2>
         <ul>
           <li><svg class="ico" style="display:inline;vertical-align:-5px" aria-hidden="true"><use href="#i-pin"/></svg> Domiciliar · <em class="ph">PREENCHER: cidade/região</em></li>
           <li><svg class="ico" style="display:inline;vertical-align:-5px" aria-hidden="true"><use href="#i-cal"/></svg> <em class="ph">PREENCHER: dias e horários</em></li>
@@ -832,6 +847,13 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     </div>
   </div>
 </footer>
+
+<!-- Barra fixa no celular -->
+<div class="mbar">
+  <a class="btn btn-primary" data-wa="mobile-bar" data-msg="Olá, Lucilene! Vi sua página e gostaria de agendar uma sessão de laserterapia pediátrica." href="https://wa.link/bob2vh" target="_blank" rel="noopener">
+    <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Agendar pelo WhatsApp
+  </a>
+</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -852,14 +874,20 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 
   /* ===== Rastreamento: ligue aqui o Meta Pixel e o Google Analytics ===== */
+  // PRIVACIDADE: nao envie a situacao de saude nem os dados do formulario ao Pixel/Analytics.
   function track(name, detail){
     // [PREENCHER] Meta Pixel:      fbq('track','Contact');
     // [PREENCHER] Google Analytics: gtag('event', name, { detail: detail });
   }
 
   /* ===== WhatsApp ===== */
-  function waHref(msg){
+  function waNumber(){
     var n = (CONFIG.whatsappNumber||'').replace(/\D/g,'');
+    if(/^55\d{10,11}$/.test(n)) n = n.slice(2);
+    return n;
+  }
+  function waHref(msg){
+    var n = waNumber();
     if(n){ return 'https://wa.me/55' + n + '?text=' + encodeURIComponent(msg); }
     return CONFIG.fallbackLink;
   }
@@ -884,7 +912,7 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       ticking = false;
     });
   }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll); onScroll();
 
   /* ===== Entrada ao rolar ===== */
   var reveals = $$('.reveal, .once');
@@ -915,30 +943,52 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     var links = {}; $$('.nav-links a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
     var so = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(!e.isIntersecting) return;
-        Object.keys(links).forEach(function(k){ links[k].classList.toggle('on', k === e.target.id); });
+        var l = links[e.target.id]; if(!l) return;
+        if(e.isIntersecting){ Object.keys(links).forEach(function(k){ links[k].classList.toggle('on', k === e.target.id); }); }
+        else { l.classList.remove('on'); }
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
     Object.keys(links).forEach(function(k){ var t = document.getElementById(k); if(t) so.observe(t); });
   })();
 
-  /* ===== Texto digitado ===== */
+  /* ===== Título do hero: reserva a altura da maior variação (sem pulos) + texto digitado ===== */
   (function(){
-    var el = $('#typed'); if(!el || RM) return;
-    var words = ['bebês','crianças','pós-operatórios','pequenas feridas'], wi = 0, ci = words[0].length, del = true;
+    var el = $('#typed'), h1 = $('.hero h1'); if(!el || !h1) return;
+    var words = ['bebês','crianças','pós-operatórios','pequenas feridas'];
+    function lockH1(){
+      var cur = el.textContent, max = 0;
+      h1.style.minHeight = '';
+      words.forEach(function(w){ el.textContent = w; max = Math.max(max, h1.offsetHeight); });
+      el.textContent = cur; h1.style.minHeight = max + 'px';
+    }
+    lockH1();
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(lockH1); }
+    var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(lockH1, 150); });
+    if(RM) return;
+    var wi = 0, ci = words[0].length, del = true, passes = 0;
+    function stop(){ var c = $('.caret'); if(c) c.style.display = 'none'; }
     function tick(){
       var w = words[wi], delay;
       if(!heroVisible){ return setTimeout(tick, 400); }
       if(del){
         ci--; el.textContent = w.slice(0,ci); delay = 45;
-        if(ci <= 0){ del = false; wi = (wi+1) % words.length; delay = 280; }
+        if(ci <= 0){ del = false; wi = (wi+1) % words.length; if(wi === 0) passes++; delay = 280; }
       } else {
         var nw = words[wi]; ci++; el.textContent = nw.slice(0,ci); delay = 85;
-        if(ci >= nw.length){ del = true; delay = 2000; }
+        if(ci >= nw.length){
+          if(wi === 0 && passes >= 1){ return stop(); }   // uma volta completa e para na primeira palavra
+          del = true; delay = 2000;
+        }
       }
       setTimeout(tick, delay);
     }
     setTimeout(tick, 2200);
+  })();
+
+  /* Logo: volta ao topo mesmo se a URL ja estiver em #top */
+  (function(){
+    var b = $('.brand'); if(!b) return;
+    b.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior: RM ? 'auto' : 'smooth'}); });
   })();
 
   /* ===== Brilho que segue o mouse nos cartões ===== */
@@ -997,11 +1047,12 @@ footer .ph{background:#FFF1B8;color:#5B4300}
   }
 
   function renderSummary(){
-    $('#summary').textContent = 'Resumo do seu pedido:\n' + buildMessage().split('\n').slice(2,-2).join('\n');
+    var linhas = buildMessage().split('\n').slice(2,-2).filter(function(l){ return !/:\s*$/.test(l); });
+    $('#summary').textContent = 'Resumo do seu pedido:\n' + linhas.join('\n');
   }
   form.addEventListener('input', function(){ if(cur === 4) renderSummary(); });
 
-  function show(n){
+  function show(n, userNav){
     cur = n;
     panels.forEach(function(p){ p.hidden = (parseInt(p.getAttribute('data-step'),10) !== n); });
     stepper.forEach(function(s,i){ s.classList.toggle('on', i < n); });
@@ -1010,29 +1061,55 @@ footer .ph{background:#FFF1B8;color:#5B4300}
     err.textContent = '';
     if(n === 4){
       renderSummary();
-      next.innerHTML = '<svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> Enviar pelo WhatsApp';
+      next.innerHTML = '<svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg> ' + (waNumber() ? 'Enviar pelo WhatsApp' : 'Abrir WhatsApp com o resumo');
     } else {
       next.innerHTML = 'Continuar <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>';
     }
+    if(userNav){
+      var panel = panels[n-1], lg = $('legend', panel);
+      if(lg){ lg.setAttribute('tabindex','-1'); lg.focus({preventScroll:true}); }
+      var card = $('#pedido'), r = card.getBoundingClientRect();
+      if(r.top < 80 || r.bottom > window.innerHeight){ card.scrollIntoView({block:'start', behavior: RM ? 'auto' : 'smooth'}); }
+    }
+  }
+
+  // Sem número configurado, o aviso do rodapé do formulário explica como o envio funciona
+  if(!waNumber()){
+    var fp = $('#finePrint');
+    if(fp) fp.textContent = 'Seus dados não ficam guardados nesta página. No último passo o resumo é copiado e o WhatsApp abre: é só colar na conversa.';
   }
 
   function validate(n){
-    if(n===1 && !val('who')) return 'Escolha para quem é o atendimento.';
-    if(n===2 && !val('issue')) return 'Escolha o que está acontecendo.';
-    if(n===3){ if(!val('day')) return 'Escolha um dia de preferência.'; if(!val('period')) return 'Escolha um período.'; }
-    if(n===4){
-      if(form.name.value.trim().length < 2) return 'Informe o nome do responsável.';
-      if(form.city.value.trim().length < 2) return 'Informe o bairro e a cidade.';
+    var q = function(nm){ return form.querySelector('input[name="'+nm+'"]'); };
+    if(n===1 && !val('who')) return {msg:'Escolha para quem é o atendimento.', el:q('who')};
+    if(n===2 && !val('issue')) return {msg:'Escolha o que está acontecendo.', el:q('issue')};
+    if(n===3){
+      if(!val('day')) return {msg:'Escolha um dia de preferência.', el:q('day')};
+      if(!val('period')) return {msg:'Escolha um período.', el:q('period')};
     }
-    return '';
+    if(n===4){
+      if(form.name.value.trim().length < 2) return {msg:'Informe o nome do responsável.', el:form.name};
+      if(form.city.value.trim().length < 2) return {msg:'Informe o bairro e a cidade.', el:form.city};
+    }
+    return null;
   }
+  function clearErr(){
+    err.textContent = '';
+    $$('[aria-invalid]', form).forEach(function(x){ x.removeAttribute('aria-invalid'); });
+  }
+  form.addEventListener('input', clearErr);
+  form.addEventListener('change', clearErr);
 
   next.addEventListener('click', function(){
-    var m = validate(cur);
-    if(m){ err.textContent = m; return; }
-    if(cur < 4){ show(cur+1); return; }
-    var msg = buildMessage(), n = (CONFIG.whatsappNumber||'').replace(/\D/g,'');
-    track('booking_submit', val('issue'));
+    var bad = validate(cur);
+    if(bad){
+      err.textContent = bad.msg;
+      if(bad.el){ if(bad.el.type === 'text'){ bad.el.setAttribute('aria-invalid','true'); } bad.el.focus(); }
+      return;
+    }
+    if(cur < 4){ show(cur+1, true); return; }
+    var msg = buildMessage(), n = waNumber();
+    track('booking_submit');
     if(n){
       window.open(waHref(msg), '_blank', 'noopener');
     } else {
@@ -1049,12 +1126,19 @@ footer .ph{background:#FFF1B8;color:#5B4300}
       var r = form.querySelector('input[name="issue"][value="' + a.getAttribute('data-issue') + '"]');
       if(r){ r.checked = true; r.dispatchEvent(new Event('change')); }
       show(1);
-      track('situation_click', a.getAttribute('data-issue'));
+      track('situation_click');
     });
   });
-  back.addEventListener('click', function(){ if(cur>1) show(cur-1); });
+  back.addEventListener('click', function(){ if(cur>1) show(cur-1, true); });
   form.addEventListener('submit', function(e){ e.preventDefault(); });
-  form.addEventListener('keydown', function(e){ if(e.key==='Enter' && e.target.tagName !== 'TEXTAREA'){ e.preventDefault(); next.click(); } });
+  form.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' || e.repeat) return;
+    var t = e.target;
+    if(t.tagName === 'TEXTAREA' || t.tagName === 'BUTTON' || t.tagName === 'SELECT' || t.tagName === 'A') return;
+    e.preventDefault();
+    if(cur === 4 && t === form.name){ form.city.focus(); return; }
+    next.click();
+  });
 })();
 </script>
 </body>
